@@ -3,6 +3,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
 
+import routes from './routes/soccerRoutes';
+
 const app = express();
 app.use(helmet());
 app.use(morgan('tiny'));
@@ -18,6 +20,8 @@ mongoose
   })
   .then(() => console.log('Connected to MongoDB...'))
   .catch(err => console.error('Could not connect to mongoDB'));
+
+routes(app);
 
 app.get('/', (req, res) => {
   res.send(`Our Soccer application is running on port ${PORT}`);
