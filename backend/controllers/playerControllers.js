@@ -4,10 +4,15 @@ import { PlayerSchema } from '../models/playerModel';
 const Player = mongoose.model('Player', PlayerSchema);
 
 export const addNewPlayer = (req, res) => {
-  let newPlayer = new Player(req.body);
+  const newPlayer = new Player(req.body);
 
-  newPlayer.save((err, Player) => {
-    if (err) res.send(err);
-    res.json(Player);
-  });
+  newPlayer
+    .save()
+    .then(() => res.status(201).send(newPlayer))
+    .catch(e => res.status(400).send(e));
+};
+export const getPlayers = (req, res) => {
+  Player.find({})
+    .then(players => res.send(players))
+    .catch(e => res.status(500).send(e));
 };
