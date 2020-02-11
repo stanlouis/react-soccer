@@ -25,3 +25,16 @@ export const getPlayerWithID = (req, res) => {
     })
     .catch(e => res.status(500).send(e));
 };
+
+export const updatePlayer = (req, res) => {
+  const { id } = req.params;
+  Player.findByIdAndUpdate(
+    { _id: id },
+    req.body,
+    { new: true },
+    (err, Player) => {
+      if (err) res.send(err);
+      res.json(Player);
+    }
+  );
+};
