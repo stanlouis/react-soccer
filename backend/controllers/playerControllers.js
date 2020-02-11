@@ -16,3 +16,12 @@ export const getPlayers = (req, res) => {
     .then(players => res.send(players))
     .catch(e => res.status(500).send(e));
 };
+export const getPlayerWithID = (req, res) => {
+  const { id } = req.params;
+  Player.findById(id)
+    .then(player => {
+      if (!player) return res.status(400).send();
+      return res.send(player);
+    })
+    .catch(e => res.status(500).send(e));
+};
