@@ -32,7 +32,13 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col s12">Menu</div>
+          <nav>
+            <div className="nav-wrapper blue bg-darken-1">
+              <a href="/" className="brand-logo">
+                Soccer Management
+              </a>
+            </div>
+          </nav>
         </div>
         <div className="row">
           <div className="col s3">
@@ -42,7 +48,7 @@ class App extends Component {
             />
           </div>
           <div className="col s9">
-            <PlayerSingle />
+            <PlayerSingle selectedPlayer={this.state.currentPlayer} />
           </div>
         </div>
         <div className="row">
