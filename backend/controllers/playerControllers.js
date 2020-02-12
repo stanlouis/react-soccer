@@ -11,11 +11,13 @@ export const addNewPlayer = (req, res) => {
     .then(() => res.status(201).send(newPlayer))
     .catch(e => res.status(400).send(e));
 };
+
 export const getPlayers = (req, res) => {
   Player.find({})
     .then(players => res.send(players))
     .catch(e => res.status(500).send(e));
 };
+
 export const getPlayerWithID = (req, res) => {
   const { id } = req.params;
   Player.findById(id)
@@ -37,4 +39,12 @@ export const updatePlayer = (req, res) => {
       res.json(Player);
     }
   );
+};
+
+export const deletePlayer = (req, res) => {
+  const { id } = req.params;
+  Player.remove({ _id: id }, (err, Player) => {
+    if (err) res.send(err);
+    res.json({ message: 'Successfully deleted player' });
+  });
 };
