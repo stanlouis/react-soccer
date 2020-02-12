@@ -34,7 +34,7 @@ class App extends Component {
         <div className="row">
           <nav>
             <div className="nav-wrapper blue bg-darken-1">
-              <a href="/" className="brand-logo">
+              <a href="/" className="brand-logo center">
                 Soccer Management
               </a>
             </div>
@@ -51,9 +51,13 @@ class App extends Component {
             <PlayerSingle selectedPlayer={this.state.currentPlayer} />
           </div>
         </div>
-        <div className="row">
-          <div className="col s12">
-            <PlayerForm />
+        <div className="container">
+          <div className="col m10 offset-m1 s12">
+            <div className="row">
+              <div className="col s12">
+                <PlayerForm />
+              </div>
+            </div>
           </div>
         </div>
       </div>

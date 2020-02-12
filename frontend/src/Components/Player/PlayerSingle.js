@@ -6,7 +6,7 @@ const PlayerSingle = ({selectedPlayer}) => {
       <div className="col s12">
         <div className="card">
           <div className="card-image">
-            <img src="soccer.jpeg" alt="Soccer image" />
+            <img src="soccer.jpeg" alt="Soccer" />
             <span className="card-title">
               {selectedPlayer.firstName} {selectedPlayer.lastName}
             </span>
